@@ -31,7 +31,12 @@ cal_operators["/"] = divide
 # ------
 
 # add logo from art.py
+
+# "No" point when user choose "n"
+
 # display the logo
+
+# "Yes" point when user choose "y"
 
 # ask user input for first number
 first_number = input("What's the first number?: ")

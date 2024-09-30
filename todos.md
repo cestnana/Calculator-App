@@ -6,6 +6,7 @@
 # Idea-2: To call multiplication from the operations dictionary, try code like this:
 # result = operations["*"](n1= 5, n2= 3)
 # result would then be equal to 15.
+# Idea-3: modify the start logo.
 
 Functionality
 Program asks the user to type the first number.

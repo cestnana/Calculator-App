@@ -2,6 +2,11 @@
 # TODO-2: Add these 4 functions into a dictionary as the values. Keys = "+", "-", "*", "/"
 # TODO-3: Use the dictionary operations to perform the calculations. Multiply 4 * 8 using the dictionary.
 
+# Idea-1: Write out a flowchart to plan your program.
+# Idea-2: To call multiplication from the operations dictionary, try code like this:
+# result = operations["*"](n1= 5, n2= 3)
+# result would then be equal to 15.
+
 Functionality
 Program asks the user to type the first number.
 Program asks the user to type a mathematical operator (a choice of "+", "-", "*" or "/")

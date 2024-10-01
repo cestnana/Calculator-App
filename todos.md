@@ -8,6 +8,12 @@
 # result would then be equal to 15.
 # Idea-3: modify the start logo.
 
+# Extra TODO:
+# 1. display whole calculation
+# 2. print available operators in more clever way
+# 3. User Input Validation
+# 4. Clear the screen at the beginning?
+
 Functionality
 Program asks the user to type the first number.
 Program asks the user to type a mathematical operator (a choice of "+", "-", "*" or "/")

@@ -9,10 +9,14 @@
 # Idea-3: modify the start logo.
 
 # Extra TODO:
-# 1. display whole calculation
-# 2. print available operators in more clever way
-# 3. User Input Validation
-# 4. Clear the screen at the beginning?
+# 1. Clear the screen at the beginning 
+# 2. display whole calculation 
+# 3. print available operators in more clever way 
+# 4. Handle ZeroDivisionError: float division by zero
+# 5. User Input Validation: 
+# 5-1. chosen operator
+# 5-2. first number, second number
+# 6. Recursion version of the whole calculator function
 
 Functionality
 Program asks the user to type the first number.

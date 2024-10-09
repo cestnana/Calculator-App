@@ -106,6 +106,10 @@ while program_runs:
   # "Yes" point when user choose "y"
   elif continue_cal == "y":
     first_number = cal_result
+    # if first_number != None:
+    #   first_number = cal_result
+    # else:
+    #   first_number = float(0)
   # display the operator use can choose from
   # print("+\n-\n*\n/\n")
   for operator in cal_operators:
@@ -138,16 +142,21 @@ while program_runs:
 
     try:
       value = float(second_number)
-      print("The value you entered is:", value)
+      # print("The value you entered is:", value)
       break  # Input correctly will exit the loop
     except ValueError:
       # catch the error and handle it
       print("What you entered is not a number. Please re-enter it.")
   
   # Handle "ZeroDivisionError" issue:
-  if second_number == 0:
+  if int(second_number) == 0:
+    # print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
+    # continue_cal = "y"
     print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
-    continue_cal = "y"
+    # tell the program to stop
+    continue_cal = "q"
+    # exit the loop
+    # break
   else:
     # program work out result based on chosen operator
     cal_result = cal_operators[chosen_operator](float(first_number), float(second_number))

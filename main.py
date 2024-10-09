@@ -37,6 +37,29 @@ cal_operators["/"] = divide
 
 # ------
 
+#function declarations:
+
+
+# input validation (handle NaN)
+
+# def input_number(arg):
+#   user_input = arg
+#   while True:
+    
+#     try:
+#       value = float(user_input)
+#       print("The value you entered is:", value)
+#       break  # Input correctly will exit the loop
+#     except ValueError:
+#       # catch the error and handle it
+#       print("What you entered is not a number. Please re-enter it.")
+        
+#   return float(user_input)
+
+
+
+# reset the result
+
 def reset_result(arg):
   # clear the screen
   print("\n" * 20)
@@ -63,8 +86,23 @@ while program_runs:
     reset_result(cal_result)
     # display the logo
     print(art.logo)
-    # ask user input for first number
-    first_number = float(input("What's the first number?: "))
+    
+    
+    while True:
+      
+      # ask user input for first number
+      first_number = input("What's the first number?: ")
+      # user_input = input("Please enter a number:")
+
+      try:
+        value = float(first_number)
+        print("The value you entered is:", value)
+        break  # Input correctly will exit the loop
+      except ValueError:
+        # catch the error and handle it
+        print("What you entered is not a number. Please re-enter it.")
+      
+
   # "Yes" point when user choose "y"
   elif continue_cal == "y":
     first_number = cal_result
@@ -72,6 +110,10 @@ while program_runs:
   # print("+\n-\n*\n/\n")
   for operator in cal_operators:
     print(operator)
+    
+  
+  # --- put into a function
+    
   # ask user input for the operator
   chosen_operator = input("Pick an operation: ")
   # Handle unavailable operator case:
@@ -82,15 +124,33 @@ while program_runs:
       print(operator)
     # ask user input for the operator
     chosen_operator = input("Pick an operation: ")
+    
+  # --- put into a function
+    
   # ask user input for second number
-  second_number = float(input("What's the second number?: "))
+  # second_number = input("What's the second number?: ")
+  
+  while True:
+  
+    # ask user input for second number
+    second_number = input("What's the second number?: ")
+    # user_input = input("Please enter a number:")
+
+    try:
+      value = float(second_number)
+      print("The value you entered is:", value)
+      break  # Input correctly will exit the loop
+    except ValueError:
+      # catch the error and handle it
+      print("What you entered is not a number. Please re-enter it.")
+  
   # Handle "ZeroDivisionError" issue:
   if second_number == 0:
     print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
     continue_cal = "y"
   else:
     # program work out result based on chosen operator
-    cal_result = cal_operators[chosen_operator](first_number, second_number)
+    cal_result = cal_operators[chosen_operator](float(first_number), float(second_number))
     # display the result with display whole calculation
     print(f"{first_number} {chosen_operator} {second_number} = {cal_result}")
     # ask user for: continue/reset/quit

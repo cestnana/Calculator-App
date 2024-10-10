@@ -1,5 +1,5 @@
 # add logo from art.py
-import art
+from art import logo
 
 # add:
 def add(n1, n2):
@@ -85,7 +85,7 @@ while program_runs:
   # cal_result = 0.0 -> write a function to deal with this
     reset_result(cal_result)
     # display the logo
-    print(art.logo)
+    print(logo)
     
     
     while True:
@@ -148,7 +148,7 @@ while program_runs:
       print("What you entered is not a number. Please re-enter it.")
   
   # Handle "ZeroDivisionError" issue:
-  if int(second_number) == 0:
+  if float(second_number) == 0 or 0.0:
     # print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
     # continue_cal = "y"
     print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")

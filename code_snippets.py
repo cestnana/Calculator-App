@@ -128,3 +128,9 @@
   #   chosen_operator = input("Pick an operation: ")
   
   
+  # # Handle "ZeroDivisionError" issue:
+  # if float(second_number) == 0 or 0.0:
+  #   print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
+  #   # tell the program to stop
+  #   is_continue_cal = "q"
+  

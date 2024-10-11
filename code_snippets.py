@@ -114,3 +114,17 @@
   #   continue_cal = "q"
   #   # exit the loop
   #   # break
+  
+
+  #     # ask user input for the operator
+  # chosen_operator = input("Pick an operation: ")
+  # # Handle unavailable operator case:
+  # while chosen_operator not in cal_operators:
+  #   print("Please choose a valid operator.")
+  #   print(f"Your first number is: {first_number}")
+  #   for operator in cal_operators:
+  #     print(operator)
+  #   # ask user input for the operator
+  #   chosen_operator = input("Pick an operation: ")
+  
+  

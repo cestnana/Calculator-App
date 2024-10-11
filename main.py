@@ -1,25 +1,20 @@
 # add logo from art.py
-import art
+from art import logo
 
-
-# ------------------------------
-
+# ---------------------
 #function declarations:
 
 # add:
 def add(n1, n2):
     return n1 + n2
 
-
 # subtract:
 def subtract(n1, n2):
     return n1 - n2
 
-
 # multiply:
 def multiply(n1, n2):
     return n1 * n2
-
 
 # divide:
 def divide(n1, n2):
@@ -33,16 +28,12 @@ def divide(n1, n2):
       return None
       # return 0
 
-
 # display operators
-
 def display_operators():
   for operator in cal_operators:
     print(operator)
-  
 
 # reset the result
-
 def reset_result(arg):
   # clear the screen
   print("\n" * 20)
@@ -50,69 +41,55 @@ def reset_result(arg):
   arg = 0.0
   return arg
 
-
 # input operator
-
-def input_operator():
+def input_operator(arg):
     # ask user input for the operator
-  chosen_operator = input("Pick an operation: ")
+  arg = input("Pick an operation: ")
   # Handle unavailable operator case:
-  while chosen_operator not in cal_operators:
+  while arg not in cal_operators:
     print("Please choose a valid operator.")
     print(f"Your first number is: {first_number}")
     for operator in cal_operators:
       print(operator)
     # ask user input for the operator
-    chosen_operator = input("Pick an operation: ")
-  return chosen_operator
-
+    arg = input("Pick an operation: ")
+  return arg
 
 # input first number
-
-def input_first_number():
+def input_first_number(arg):
   while True:
-    
     # ask user input for first number
-    first_number = input("What's the first number?: ")
-    # user_input = input("Please enter a number:")
-
+    arg = input("What's the first number?: ")
+    # test input is a number or not
     try:
-      value = float(first_number)
-      # print("The value you entered is:", value)
-      # break  # Input correctly will exit the loop
-      return first_number
+      value = float(arg)
+      # if input is a number, return the value
+      return arg
+    # if input is not a number:
     except ValueError:
       # catch the error and handle it
       print("What you entered is not a number. Please re-enter it.")
-  # return first_number
 
-
-def input_second_number():
+def input_second_number(arg):
   while True:
-
     # ask user input for second number
-    second_number = input("What's the second number?: ")
-    # user_input = input("Please enter a number:")
-
+    arg = input("What's the second number?: ")
+    # test input is a number or not
     try:
-      value = float(second_number)
-      # print("The value you entered is:", value)
-      # break  # Input correctly will exit the loop
-      return second_number
+      value = float(arg)
+      # if input is a number, return the value
+      return arg
+    # if input is not a number:
     except ValueError:
       # catch the error and handle it
       print("What you entered is not a number. Please re-enter it.")
-  
 
-  # return second_number
-
-
-# -------------------------------------
+# -------------------------------------------
 # Initialize Variables / Lists / Dictionaries
 
 # Initialized cal_operators
 cal_operators = {}
-
+# add default operators into dictionary
 cal_operators["+"] = add
 cal_operators["-"] = subtract
 cal_operators["*"] = multiply
@@ -131,83 +108,48 @@ second_number = 0.0
 cal_result = 0.0
 
 # Initialized the continue flag
-continue_cal = "n"
+is_continue_cal = "n"
 
 # set the flag if program run of not
-program_runs = True
+is_program_runs = True
 
 # -------------------------------------
-
-
 # main logic
 
-while program_runs: 
-  # "No" point when user choose "n"
-  if continue_cal == "n":
-
-  # # reset the calculation result
-  # cal_result = 0.0 -> write a function to deal with this
+while is_program_runs: 
+  # *** "No" point when user choose "n"
+  if is_continue_cal == "n":
+    # reset the calculation result
     reset_result(cal_result)
     # display the logo
-    print(art.logo)
-    
-    # input first number: 
-    input_first_number()
-    
-  # "Yes" point when user choose "y"
-  elif continue_cal == "y":
+    print(logo)
+    # handle first number input
+    first_number = input_first_number(first_number)
+  # *** "Yes" point when user choose "y"
+  elif is_continue_cal == "y":
+    # if user continued from previous round:
     first_number = cal_result
-
-  # display the operator use can choose from
-  # print("+\n-\n*\n/\n")
+  # display the operator user can choose from
+  # expected output is like: print("+\n-\n*\n/\n")
   display_operators()
-    
-  # input_operator()
+  # handle operator input
+  chosen_operator = input_operator(chosen_operator)
+  # handle second number input
+  second_number = input_second_number(second_number)
   
-      # ask user input for the operator
-  chosen_operator = input("Pick an operation: ")
-  # Handle unavailable operator case:
-  while chosen_operator not in cal_operators:
-    print("Please choose a valid operator.")
-    print(f"Your first number is: {first_number}")
-    for operator in cal_operators:
-      print(operator)
-    # ask user input for the operator
-    chosen_operator = input("Pick an operation: ")
-  
-  input_second_number()
-  
-    # Handle "ZeroDivisionError" issue:
+  # Handle "ZeroDivisionError" issue:
   if float(second_number) == 0 or 0.0:
-    # print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
-    # continue_cal = "y"
     print(f"Number cannot divided be zero('0'), please choose another number.\nYour first number is: {first_number}")
     # tell the program to stop
-    continue_cal = "q"
-    # exit the loop
-    # break
-  
+    is_continue_cal = "q"
+  # if no input issue:
   else:
-  
     # program work out result based on chosen operator
     cal_result = cal_operators[chosen_operator](float(first_number), float(second_number))
     # display the result with display whole calculation
     print(f"{first_number} {chosen_operator} {second_number} = {cal_result}")
     # ask user for: continue/reset/quit
-    continue_cal = input(f"Type 'y' to continue calculating with {cal_result}, or type 'n' to start a new calculation, otherwise type 'q' to Quit: ")
+    is_continue_cal = input(f"Type 'y' to continue calculating with {cal_result}, or type 'n' to start a new calculation, otherwise type 'q' to Quit: ")
     # tell program no need to repeat if user want to quit
-    if continue_cal == "q":
-      program_runs = False
-    
-  # if yes: 
-  # 1. use current result as fist number
-  # 2. go back to user input for operator step
-  # if no:
-  # 1. clear the screen
-  # 2. go back to the start point
-
-  # if use_current_result == "y":
-
-  # how to go back to specific step???
-  # -> goto is not recommended and even not built-in feature
-  # -> implementing with while loop and if/elif conditional checking
+    if is_continue_cal == "q":
+      is_program_runs = False

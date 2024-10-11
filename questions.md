@@ -9,4 +9,4 @@
 
   # how to go back to specific step???
   # -> goto is not recommended and even not built-in feature
-  # -> implementing with while loop and if/elif conditional checking
+  # -> implementing with while loop and if/else if conditional checking

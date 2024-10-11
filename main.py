@@ -6,27 +6,27 @@ from art import logo
 
 # add:
 def add(n1, n2):
-    return n1 + n2
+  return n1 + n2
 
 # subtract:
 def subtract(n1, n2):
-    return n1 - n2
+  return n1 - n2
 
 # multiply:
 def multiply(n1, n2):
-    return n1 * n2
+  return n1 * n2
 
 # divide:
 def divide(n1, n2):
-    # return n1 / n2
-    # handle divided by zero case
-    try:
-      return n1 / n2
-    except ZeroDivisionError:
-      print("Error: Cannot divide by zero.")
-      # print("Number cannot divided be zero('0'), please chose another number.")
-      return None
-      # return 0
+  # return n1 / n2
+  # handle divided by zero case
+  try:
+    return n1 / n2
+  except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+    # print("Number cannot divided be zero('0'), please chose another number.")
+    return None
+    # return 0
 
 # display operators
 def display_operators():
@@ -76,7 +76,7 @@ def input_second_number(arg):
     arg = input("What's the second number?: ")
     # test input is a number or not
     try:
-      value = float(arg)
+      float(arg)
       # if input is a number, return the value
       return arg
     # if input is not a number:
@@ -116,6 +116,7 @@ is_program_runs = True
 # -------------------------------------
 # main logic
 
+# if flag "is_program_runs" == True 
 while is_program_runs: 
   # *** "No" point when user choose "n"
   if is_continue_cal == "n":
